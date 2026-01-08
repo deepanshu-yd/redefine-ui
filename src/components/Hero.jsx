@@ -75,7 +75,7 @@ const Hero = () => {
                 scrub: true
             }
         })
-    })
+    }, { dependencies: []})
 
     const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
@@ -83,7 +83,7 @@ const Hero = () => {
     <div className="relative h-dvh w-screen overflow-x-hidden">
 
         {isLoading && (
-            <div className="flex-center absolute z-100 h-dvh w-screen overflow-hidden bg-violet-50">
+            <div className="flex-center absolute z-50 h-dvh w-screen overflow-hidden bg-violet-50">
                 <div className="three-body">
                     <div className="three-body__dot" />
                     <div className="three-body__dot" />
