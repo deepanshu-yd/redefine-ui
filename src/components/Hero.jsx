@@ -77,7 +77,12 @@ const Hero = () => {
         })
     }, { dependencies: []})
 
-    const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+    const getVideoSrc = (index) => {
+        if (index === 1) {
+            return 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125028/hero-1_ennh7e.mp4';
+        }
+        return `videos/hero-${index}.mp4`;
+    };
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
