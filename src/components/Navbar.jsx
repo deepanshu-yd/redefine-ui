@@ -4,7 +4,7 @@ import Button from './Button';
 import { useWindowScroll } from 'react-use';
 import gsap from 'gsap';
 
-const navItems = ['Nexus', 'Vault', 'Prolouge', 'About', 'Contact']
+const navItems = ['Nexus', 'Vault', 'Prologue', 'About', 'Contact']
 
 const Navbar = () => {
     const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -18,6 +18,8 @@ const Navbar = () => {
     const { y: currentScrollY } = useWindowScroll();
 
     useEffect(() => {
+        if (!navContainerRef.current) return;
+
         if(currentScrollY === 0) {
             setIsNavVisible(true);
             navContainerRef.current.classList.remove('floating-nav');
@@ -33,6 +35,8 @@ const Navbar = () => {
     }, [currentScrollY, lastScrollY])
 
     useEffect(() => {
+        if (!navContainerRef.current) return;
+
         gsap.to(navContainerRef.current, {
             y: isNavVisible ? 0 : -100,
             opacity: isNavVisible ? 1 : 0,
@@ -47,8 +51,14 @@ const Navbar = () => {
     }
 
     useEffect(() => {
+        if (!navContainerRef.current) return;
+
         if(isAudioPlaying) {
-            audioElementRef.current.play();
+            audioElementRef.current.play().catch((error) => {
+            console.error('Audio playback failed:', error);
+            setIsAudioPlaying(false);
+            setIsIndicatorActive(false);
+        });
         } else {
             audioElementRef.current.pause();
         }
