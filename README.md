@@ -17,5 +17,5 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 # Todo: Optimizations after completion
-1. When clicked on the small video, the client fetches video data form server. but this happens on every click i.e. same data gets asked every time when the small image is clicked. (Priority #1)
-2. Everytime, the center image is clicked, the screen flashes and then the video appears. (Priority #1)
+
+1. Everytime, the center image is clicked, the screen flashes and then the video appears. (Priority #1)

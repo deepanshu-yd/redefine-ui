@@ -12,6 +12,7 @@ const Hero = () => {
     const [hasClicked, setHasClicked] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [loadedVideos, setLoadedVideos] = useState(0);
+    const [backgroundIndex, setBackgroundIndex] = useState(1);
 
     const totalVideos = 4;
     const nextVideoRef = useRef(null);
@@ -45,7 +46,18 @@ const Hero = () => {
                 height: '100%',
                 duration: 1,
                 ease: 'power1.inOut',
-                onStart: () => nextVideoRef.current.play()
+                onStart: () => nextVideoRef.current.play(),
+                onComplete: () => {
+                    // Update background to match current after animation completes
+                    setBackgroundIndex(currentIndex);
+                    // Reset the next-video element for the next transition
+                    gsap.set('#next-video', {
+                        scale: 1,
+                        width: '16rem',
+                        height: '16rem',
+                        visibility: 'hidden'
+                    });
+                }
             })
 
             gsap.from('#current-video', {
@@ -56,7 +68,7 @@ const Hero = () => {
             })
         }
 
-    }, {dependencies: [currentIndex], revertOnUpdate: true})
+    }, {dependencies: [currentIndex]})
 
     useGSAP(() => {
         gsap.set('#video-frame', {
@@ -124,7 +136,7 @@ const Hero = () => {
                 />
 
                 <video
-                    src={getVideoSrc(currentIndex)}
+                    src={getVideoSrc(backgroundIndex)}
                     autoPlay
                     loop
                     muted
