@@ -77,12 +77,14 @@ const Hero = () => {
         })
     }, { dependencies: []})
 
-    const getVideoSrc = (index) => {
-        if (index === 1) {
-            return 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125028/hero-1_ennh7e.mp4';
-        }
-        return `videos/hero-${index}.mp4`;
+    const videoUrls = {
+        1: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125028/hero-1_ennh7e.mp4',
+        2: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125031/hero-2_slv8ph.mp4',
+        3: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125049/hero-3_dbqfdy.mp4',
+        4: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768125060/hero-4_wncsgz.mp4',
     };
+
+    const getVideoSrc = (index) => videoUrls[index];
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
