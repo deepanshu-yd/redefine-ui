@@ -81,7 +81,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
             onMouseLeave={handleMouseLeave}
             className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
           >
-            {/* Radial gradient hover effect */}
+
             <div
               className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
               style={{
@@ -96,6 +96,14 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
       </div>
     </div>
   );
+};
+
+const featureVideoUrls = {
+  1: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768124683/feature-1_slhqi7.mp4',
+  2: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768124953/feature-2_oohx9l.mp4',
+  3: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768124967/feature-3_ce9mtp.mp4',
+  4: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768124979/feature-4_yy717w.mp4',
+  5: 'https://res.cloudinary.com/dpmtezpva/video/upload/v1768124976/feature-5_qvd2tg.mp4',
 };
 
 const Features = () => (
@@ -114,7 +122,7 @@ const Features = () => (
 
       <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
         <BentoCard
-          src="videos/feature-1.mp4"
+          src={featureVideoUrls[1]}
           title={
             <>
               radia<b>n</b>t
@@ -128,7 +136,7 @@ const Features = () => (
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
         <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
           <BentoCard
-            src="videos/feature-2.mp4"
+            src={featureVideoUrls[2]}
             title={
               <>
                 zig<b>m</b>a
@@ -141,7 +149,7 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
           <BentoCard
-            src="videos/feature-3.mp4"
+            src={featureVideoUrls[3]}
             title={
               <>
                 n<b>e</b>xus
@@ -154,7 +162,7 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
           <BentoCard
-            src="videos/feature-4.mp4"
+            src={featureVideoUrls[4]}
             title={
               <>
                 az<b>u</b>l
@@ -177,7 +185,7 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_2">
           <video
-            src="videos/feature-5.mp4"
+            src={featureVideoUrls[5]}
             loop
             muted
             autoPlay
