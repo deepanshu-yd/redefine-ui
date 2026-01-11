@@ -19,6 +19,19 @@
     --font-zentry: 'zentry-regular', sans-serif;
 }
 
+/* Hide scroolbar */
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 body {
   width: 100dvw;
   overflow-x: hidden;
@@ -107,7 +120,7 @@ body {
   }
 
   .bento-tilt_1 {
-    @apply relative border border-white/20 col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+    @apply relative border border-white/20 overflow-hidden rounded-md transition-transform duration-300 ease-out;
   }
 
   .bento-tilt_2 {
